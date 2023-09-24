@@ -1,8 +1,7 @@
 import React from "react";
-import Messages from '@/Components/Messages/Messages.js'
 import styles from '@/Components/Thanks/Thanks.module.css'
 
-const Thanks = ({ serverUrl }) => {
+const Thanks = () => {
   return(
     <section id="thanks" className={styles.thanks}>
       <div className={styles.wrapper}>
@@ -19,13 +18,6 @@ const Thanks = ({ serverUrl }) => {
             <div className={styles.firma}>
               <h2>Ramona &<br /> Stefano</h2>
             </div>
-          </div>
-
-          <div className={styles.containerMessages}>
-            <div className={styles.subtitle}>
-              <h3>Lasciaci un messaggio di auguri!</h3>
-            </div>
-            <Messages serverUrl = { serverUrl} />
           </div>
 
         </div>

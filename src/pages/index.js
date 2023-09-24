@@ -7,31 +7,6 @@ import Thanks from '@/Components/Thanks/Thanks.js'
 import Gift from '@/Components/Gift/Gift.js'
 
 
-///////////////////////////////////////////
-//// ----------- SERVER CONNECTION
-//////////////////////////////////////////
-
-export let serverUrl;
-const serverPort = 9000;  // Cuse the same port of the server
-const serverPath = '/project-marriage-ste' // place here your project path
-const serverAdress = 'https://server-piqus.vercel.app';
-const serverLive = `${serverAdress}${serverPath}`;
-const serverLocal = `http://localhost:${serverPort}${serverPath}`
-
-const  appEnv = process.env.NODE_ENV || 'development';
-const serverUrlbuilder = () => {
-  if(appEnv === 'development' ){
-    serverUrl = serverLocal
-  }else{
-    serverUrl = serverLive
-  }
-};
-
-serverUrlbuilder();
-
-// ////////////////////// end server////////////////
-
-
 
 ////////////////////////////////////////////////////
 /////----------- WEB APP 
@@ -44,8 +19,8 @@ export default function Home() {
 
     <>
       <Head>
-        <title>Ramona e Stefano si sposano</title>
-        <meta name="description" content="Sei invitato al nostro matrimonio a Milano. Ti aspettiamo il 14 settembre 2024 " />
+        <title>PIQUS - Landing page component - open source</title>
+        <meta name="description" content="An opend source project by picus - landing page component base on Next.js and React " />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -53,9 +28,9 @@ export default function Home() {
       <Cover />
       <Date />
       <Location />
-      <Contact serverUrl = { serverUrl}/>
+      <Contact />
       <Gift />
-      <Thanks serverUrl = { serverUrl} />
+      <Thanks />
     </>
   )
 }
