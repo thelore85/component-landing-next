@@ -1,5 +1,4 @@
 import React from "react";
-const _ = require('lodash');
 import { useState } from 'react';
 import styles from '@/Components/Contact/Contact.module.css'
 
@@ -25,11 +24,11 @@ const Contact = ({ serverUrl }) => {
   // STATUS UPDATE - data from form input
 
   const handleFormName = (e) => {
-    setFormData({...formData, name: _.capitalize(e.target.value)});
+    setFormData({...formData, name: e.target.value});
   }
 
   const handleFormLastName = (e) => {
-    setFormData({...formData, lastName: _.capitalize(e.target.value)});
+    setFormData({...formData, lastName: e.target.value});
   }
 
   const handleGuest = (e) => {
@@ -56,35 +55,6 @@ const Contact = ({ serverUrl }) => {
   }
 
 
-// const showEmailConfirmationPopUp = (status = 'pending') => {
-//   return status !== 'pending';
-// }
-
-//////////////////////////
-// EMAIL - sending data to server
- const emailSending = () => {
-
-  fetch(`${serverUrl}/send-email`,   {
-    method: 'post',
-    headers: {'Content-Type' : 'application/json'},
-    body: JSON.stringify({
-      name: formData.name, 
-      lastname: formData.lastName, 
-      guest: formData.guest,
-      phone: formData.phone,
-      email: formData.email,
-      note: formData.note,
-     })
-    })
-  .then(response => {
-    if(response.status === 200){ 
-      showEmailConfirmationPopUp(true)
-    }else{
-      showEmailConfirmationPopUp(false)
-    }
-    return response.json()
-  })
-}
 
   return (
     <section id='contact' className={styles.contact}>
